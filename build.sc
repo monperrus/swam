@@ -98,6 +98,24 @@ object text extends SwamModule with PublishModule {
 
 }
 
+object analysis extends SwamModule with PublishModule {
+
+  def moduleDeps = Seq(core)
+
+  def publishVersion = swamVersion
+
+  def artifactName = "swam-analysis"
+
+  def pomSettings = PomSettings(
+    description = "Swam analysis library to manipulate WebAssembly programs",
+    organization = "org.gnieh",
+    url = swamUrl,
+    licenses = Seq(swamLicense),
+    versionControl = VersionControl.github("satabin", "swam"),
+    developers = Seq(swamDeveloper))
+
+}
+
 object runtime extends SwamModule with PublishModule {
 
   def moduleDeps = Seq(core)
